@@ -36,12 +36,11 @@ def index():
 def index():
     raise RuntimeError("There is an error!")
 
-if os.environ.get("APP_LOCATION") == "heroku":
-    run(
-        host="0.0.0.0",
-        port=int(os.environ.get("PORT", 5000)),
-        server="gunicorn",
-        workers=3,
-    )
-else:
-    run(host="localhost", port=8080, debug=True)
+
+run(
+    host="0.0.0.0",
+    port=int(os.environ.get("PORT", 5000)),
+    server="gunicorn",
+    workers=3,
+)
+
