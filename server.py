@@ -21,7 +21,7 @@ def index():
   </head>
   <body>
     <label>Выберите то, что вам нужно</label>
-    <a href="/succes">Успешный переход 200</a>
+    <a href="/success">Успешный переход 200</a>
     <a href="/fail">Переход с ошибкой</a> 
   </body>
 </html>
