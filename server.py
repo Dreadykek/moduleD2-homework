@@ -4,6 +4,9 @@ import os
 from bottle import route, run, response
 from sentry_sdk.integrations.bottle import BottleIntegration
 
+from dotenv import load_dotenv
+load_dotenv()
+
 
 sentry_sdk.init(
     dsn=os.environ['DSN_ENV'],
@@ -35,11 +38,13 @@ def index():
 def index():
     raise RuntimeError("There is an error!")
 
-
-run(
-    host="0.0.0.0",
-    port=int(os.environ.get("PORT", 5000)),
-    server="gunicorn",
-    workers=3,
-)
+if os.environ.get("APP_LOCATION") == "heroku":
+    run(
+        host="0.0.0.0",
+        port=int(os.environ.get("PORT", 5000)),
+        server="gunicorn",
+        workers=3,
+    )
+else:
+    run(host="localhost", port=8080, debug=True)
 
