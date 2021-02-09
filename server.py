@@ -30,7 +30,7 @@ def index():
 
 @route('/succes')
 def index():
-    return 'HTTP статус - {status}'.format(status=response.status)
+    return '{status}'.format(status=response.status)
 
 @route('/fail')
 def index():
