@@ -6,8 +6,7 @@ from sentry_sdk.integrations.bottle import BottleIntegration
 
 
 sentry_sdk.init(
-    "https://15a319e2297841a99692954feb794a20@o519025.ingest.sentry.io/5628790",
-    traces_sample_rate=1.0,
+    dsn=os.environ['DSN_ENV'],
     integrations=[BottleIntegration()]
 )
 
