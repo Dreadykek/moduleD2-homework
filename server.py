@@ -28,7 +28,7 @@ def index():
 """
     return html
 
-@route('/succes')
+@route('/success')
 def index():
     return '{status}'.format(status=response.status)
 
